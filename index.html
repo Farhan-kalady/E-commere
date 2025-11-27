@@ -3,39 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flipkart Clone</title>
-    <link rel="stylesheet" href="style.css">
-    </head>
+    <title>Goods Cart</title>
+
+   
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: #f1f3f6;
+        }
+    </style>
+</head>
 <body>
-    <header id="main-header">
-        <div class="logo">Goods Cart</div>
-        <input type="text" placeholder="Search for products, brands and more">
-        <nav>
-            <a href="#">Login</a>
-            <a href="#">Become a Seller</a>
-            <a href="#" id="cart-icon">🛒 Cart (0)</a>
-        </nav>
+
+   
+    <header class="bg-primary text-white py-2 sticky-top shadow-sm">
+        <div class="container d-flex align-items-center justify-content-between">
+
+            <div class="fs-3 fw-bold fst-italic">Goods Cart</div>
+
+            <input type="text" 
+                   class="form-control w-50 rounded-1" 
+                   placeholder="Search for products, brands and more">
+
+            <nav class="d-flex align-items-center">
+                <a class="text-white text-decoration-none ms-4 fw-medium" href="#">Login</a>
+                <a class="text-white text-decoration-none ms-4 fw-medium" href="#">Become a Seller</a>
+                <a class="text-white text-decoration-none ms-4 fw-medium" id="cart-icon" href="#">
+                    🛒 Cart (0)
+                </a>
+            </nav>
+
+        </div>
     </header>
 
-    <div id="category-bar">
-        <a href="#">Electronics</a>
-        <a href="#">Fashion</a>
-        <a href="#">Home</a>
-        <a href="#">Appliances</a>
+   
+    <div class="bg-white shadow-sm py-2">
+        <div class="container d-flex justify-content-center gap-4">
+            <a class="text-dark fw-medium text-decoration-none" href="#">Electronics</a>
+            <a class="text-dark fw-medium text-decoration-none" href="#">Fashion</a>
+            <a class="text-dark fw-medium text-decoration-none" href="#">Home</a>
+            <a class="text-dark fw-medium text-decoration-none" href="#">Appliances</a>
+        </div>
     </div>
 
-    <main>
-        <section id="banner-carousel">
-            <img src="https://via.placeholder.com/1200x200?text=Mega+Sale+Banner" alt="Sale Banner" style="width: 100%; display: block;">
+   
+    <main class="container py-4">
+
+       
+        <img src="https://via.placeholder.com/1200x250?text=Mega+Sale+Banner"
+             class="img-fluid rounded shadow-sm mb-4">
+
+      
+        <section>
+            <h2 class="fw-semibold mb-3">Deals of the Day</h2>
+
+            <div class="row product-grid g-3">
+               
+            </div>
         </section>
 
-        <section id="product-listing">
-            <h2>Deals of the Day</h2>
-            <div class="product-grid">
-                </div>
-        </section>
     </main>
 
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
