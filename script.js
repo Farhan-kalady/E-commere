@@ -1,4 +1,4 @@
-// --- Data Structure (Mimicking a Database) ---
+// --- Product Data ---
 const products = [
     { id: 1, name: "Smartphone X10", price: 15999, image: "mobile.jpg" },
     { id: 2, name: "Wireless Headphones", price: 999, image: "headphone.jpg" },
@@ -7,50 +7,64 @@ const products = [
     { id: 5, name: "Running Shoes", price: 1899, image: "shoes.jpg" }
 ];
 
-let cart = []; // Local array to hold items added to the cart
+let cart = []; // Keeps added items
 
-// --- Core Functions ---
 
-// Updates the cart counter in the header
+// --- Update Cart Count ---
 function updateCartCount() {
     const cartIcon = document.getElementById('cart-icon');
     cartIcon.textContent = `🛒 Cart (${cart.length})`;
 }
 
-// Dynamically creates and injects product cards into the HTML
+
+// --- Display Products as Bootstrap Cards ---
 function displayProducts() {
     const productGrid = document.querySelector('.product-grid');
-    productGrid.innerHTML = ''; // Clear previous content
+    productGrid.innerHTML = ""; // Clear previous
 
     products.forEach(product => {
-        const card = document.createElement('div');
-        card.classList.add('product-card');
+        const col = document.createElement("div");
+        col.className = "col-6 col-md-3";
 
-        // Note: You must manually create an 'images' folder and add placeholder images (e.g., mobile.jpg) 
-        // or replace the src with actual URLs (like the placeholder one used in index.html)
-        card.innerHTML = `
-            <img src="https://via.placeholder.com/200x180?text=${product.name.replace(/ /g, '+')}" alt="${product.name}">
-            <h3>${product.name}</h3>
-            <p class="price">₹${product.price.toLocaleString('en-IN')}</p>
-            <button onclick="addToCart(${product.id})">ADD TO CART</button>
+        col.innerHTML = `
+            <div class="card border-0 shadow-sm p-3 text-center h-100">
+
+                <img src="https://via.placeholder.com/200x180?text=${product.name.replace(/ /g, '+')}"
+                     class="img-fluid"
+                     style="height:180px; object-fit:contain;"
+                     alt="${product.name}">
+                
+                <h5 class="mt-2 fs-6">${product.name}</h5>
+                
+                <p class="text-success fw-bold">₹${product.price.toLocaleString('en-IN')}</p>
+
+                <button class="btn btn-warning w-100 fw-semibold"
+                        onclick="addToCart(${product.id})">
+                    ADD TO CART
+                </button>
+            </div>
         `;
-        productGrid.appendChild(card);
+
+        productGrid.appendChild(col);
     });
 }
 
-// Adds a product to the cart array
+
+// --- Add to Cart Function ---
 function addToCart(productId) {
     const product = products.find(p => p.id === productId);
+
     if (product) {
         cart.push(product);
         updateCartCount();
-        console.log(`Cart contents:`, cart); // Log to console for debugging
-        alert(`${product.name} successfully added to cart!`);
+        alert(`${product.name} added to cart!`);
+        console.log("Cart:", cart);
     }
 }
 
-// --- Initialization ---
-document.addEventListener('DOMContentLoaded', () => {
+
+// --- Initialize Page ---
+document.addEventListener("DOMContentLoaded", () => {
     displayProducts();
     updateCartCount();
 });
